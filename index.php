@@ -1,3 +1,29 @@
+<?php
+$services = [
+      "communication" => [
+          "nom" => "Dupont",
+          "prenom" => "Marie",
+          "email" => "marie.dupont@entreprise.com"
+      ],
+      "rh" => [
+          "nom" => "Martin",
+          "prenom" => "Jean",
+          "email" => "jean.martin@entreprise.com"
+      ],
+      "logistique" => [
+          "nom" => "Bernard",
+          "prenom" => "Lucie",
+          "email" => "lucie.bernard@entreprise.com"
+      ], 
+      "technique" => [
+          "nom" => "Bernard",
+          "prenom" => "Lucie",
+          "email" => "lucie.bernard@entreprise.com"
+      ]
+  ];
+
+?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0320)https://file.notion.so/f/f/57e9685d-be14-4b02-bb2a-66cd5e12bc73/e308f032-083b-4fd2-813b-35839c8c547e/index.html?table=block&id=1373a840-d5f2-8045-a752-ef993d469a58&spaceId=57e9685d-be14-4b02-bb2a-66cd5e12bc73&expirationTimestamp=1731067200000&signature=UtdoCnlDw_BiBEmdAiQzoKOQu32On2WongE5emuI-DM&downloadName=index.html -->
 <html lang="fr">
