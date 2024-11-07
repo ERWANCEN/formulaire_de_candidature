@@ -1,7 +1,6 @@
 <?php
-phpinfo();
 require 'session.php';
-include 'messages_erreur.php';
+// include 'messages_erreur.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       include 'envoi_email.php';
   }

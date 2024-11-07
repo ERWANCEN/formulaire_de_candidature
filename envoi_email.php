@@ -1,9 +1,8 @@
 <?php
-phpinfo(); 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Assurez-vous que le champ email est bien rempli
     if (isset($_POST['email']) && !empty($_POST['email'])) {
-        $to = $_POST['email'];
+        $to = 'webmaster@example.com';
         $subject = 'Formulaire de candidature';
         $message = "
             <h2>Voici la fiche du profil de la personne ayant postulé :</h2>
@@ -19,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: erwancenac@gmail.com' . "\r\n" .
-                    'Reply-To: erwancenac@gmail.com' . "\r\n" .
+        $headers .= 'From: webmaster@example.com' . "\r\n" .
+                    'Reply-To: webmaster@example.com' . "\r\n" .
                     'X-Mailer: PHP/' . phpversion();
 
         if (mail($to, $subject, $message, $headers)) {
@@ -33,12 +32,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-    // $to      = '$_POST[\'email\']';
-    // $subject = 'Confirmation d\'envoi de votre formulaire de candidature';
-    // $message = 'Nous vous confirmons que votre candidature a bien été transmise à Florent L\'Hélias. <br>Nous vous remercions pour l\'intérêt que vous portez à notre entreprise, votre candidature sera analysée au plus vite. <br>Bien cordialement, <br>Flo Leplusbeau.';
-    // $headers = 'From: webmaster@example.com' . "\r\n" .
-    // 'Reply-To: webmaster@example.com' . "\r\n" .
-    // 'X-Mailer: PHP/' . phpversion();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Assurez-vous que le champ email est bien rempli
+    if (isset($_POST['email']) && !empty($_POST['email'])) {
+$to = $_POST['email'];
+        $subject = 'Confirmation envoi candidature';
+        $message = "Nous vous confirmons l'envoi de votre candidature à -webmaster-. <br>Nous reviendrons vers vous dès que possible. <br><br>Bien cordialement, <br><br>-webmaster";
 
-    // mail($to, $subject, $message, $headers);
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: webmaster@example.com' . "\r\n" .
+                    'Reply-To: webmaster@example.com' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+
+        if (mail($to, $subject, $message, $headers)) {
+            echo "Email envoyé avec succès.";
+        } else {
+            echo "Erreur : l'email n'a pas pu être envoyé.";
+        }
+    } else {
+        echo "Erreur : adresse email manquante.";
+    }
+}
  ?>
