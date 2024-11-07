@@ -1,4 +1,11 @@
 <?php
+phpinfo();
+require 'session.php';
+include 'messages_erreur.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      include 'envoi_email.php';
+  }
+
 $services = [
       "communication" => [
           "nom" => "Dupont",
@@ -44,17 +51,23 @@ $services = [
                   <div class="mb-3">
                         <label for="prenom" class="form-label">Prénom</label>
                         <input type="text" class="form-control" id="prenom" name="prenom" required>
+                        <p><?php if(isset($errors['prenom'])) {
+                              echo $errors['prenom'];
+                        } ?></p>
                   </div>
 
                   <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" class="form-control" id="nom" name="nom" required>
+                        <p><?php if(isset($errors['nom'])) {
+                              echo $errors['nom'];
+                        } ?></p>
                   </div>
 
                   <!-- Email -->
                   <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                   </div>
 
                   <!-- Téléphone -->
@@ -66,7 +79,7 @@ $services = [
                   <!-- Préférence de réception de CV -->
                   <div class="mb-3">
                         <label for="service" class="form-label">Service de transmission du CV</label>
-                        <select class="form-select" id="service" required>
+                        <select class="form-select" id="service" name="service" required>
                               <option value="communication">Service communication</option>
                               <option value="rh">Service ressources humaines</option>
                               <option value="logistique">Service logistique</option>
@@ -83,7 +96,7 @@ $services = [
                   <!-- Message de motivation -->
                   <div class="mb-3">
                         <label for="message" class="form-label">Message de motivation</label>
-                        <textarea class="form-control" id="message" rows="5"
+                        <textarea class="form-control" id="message" name="message" rows="5"
                               placeholder="Parlez-nous de vous, de vos motivations, et de ce qui vous attire dans ce poste."
                               required></textarea>
                   </div>
@@ -111,7 +124,7 @@ $services = [
                   </div>
 
                   <!-- Bouton de soumission -->
-                  <button type="submit" class="btn btn-primary">Envoyer la Candidature</button>
+                  <button type="submit" class="btn btn-primary" method="post">Envoyer la Candidature</button>
             </form>
       </div>
 
