@@ -118,7 +118,7 @@ $services = [
                   <!-- Préférence de réception de CV -->
                   <div class="mb-3">
                         <label for="service" class="form-label">Service de transmission du CV</label>
-                        <select class="form-select" id="service" required>
+                        <select class="form-select" id="service" name="service" required>
                               <option value="communication">Service communication</option>
                               <option value="rh">Service ressources humaines</option>
                               <option value="logistique">Service logistique</option>
@@ -139,7 +139,7 @@ $services = [
                         <?php } ?>
                         <label for="message" class="form-label">Message de motivation</label>
                         <textarea class="form-control" id="message" rows="5"
-                              placeholder="Parlez-nous de vous, de vos motivations, et de ce qui vous attire dans ce poste."
+                              name="message" placeholder="Parlez-nous de vous, de vos motivations, et de ce qui vous attire dans ce poste."
                               required></textarea>
                   </div>
 
